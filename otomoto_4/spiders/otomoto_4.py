@@ -1,6 +1,4 @@
 import scrapy
-from scrapy.spiders import Rule
-from scrapy.linkextractors import LinkExtractor
 from otomoto_4.items import Otomoto4Item
 
 
@@ -34,8 +32,6 @@ class Otomoto4(scrapy.Spider):
             yield response.follow(li, callback=self.parse)
 
     def parse_auction(self, response):
-        import pdb
-        pdb.set_trace()
         item = response.meta['item']
 
         items = response.xpath('//*[@class="offer-params__item"]')
